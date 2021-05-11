@@ -29,6 +29,8 @@
 \RequirePackage{xifthen}
 % 插入代码
 \RequirePackage{minted}
+%表格自动换行
+\RequirePackage{tabularx}
 % 设置列表格式
 \RequirePackage{enumitem}
 % 表格注释
@@ -155,6 +157,7 @@
 ]{subsubsection}
 
 
+
 \bibliographystyle{gbt7714-numerical}
 
 
@@ -239,13 +242,13 @@
 % 致谢 
 \newcommand{\bjfuThanks}{
     \newpage
-    \centerline{\zihao{4}\CJKfamily{zhsong}\bfseries{致谢}}\vspace{14pt}\addcontentsline{toc}{section}{致谢}
+    \centerline{\zihao{4}\CJKfamily{zhsong}\bfseries{致谢}}\vspace{14pt}\phantomsection\addcontentsline{toc}{section}{致谢}
 }
 
 % 参考文献 小五号宋体
 \newcommand{\bjfubib}[1]{
     \newpage
-    \addcontentsline{toc}{section}{参考文献}\zihao{-5}\CJKfamily{zhsong}\bibliography{#1}
+    \phantomsection\addcontentsline{toc}{section}{参考文献}\zihao{-5}\CJKfamily{zhsong}\bibliography{#1}
 }
 
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -346,7 +349,7 @@
             \zihao{4}\textbf{Abstract}
         \end{center}
         %英文摘要正文
-        \zihao{5} \bjfuAbstractEnString \\\\
+        \zihao{5} \setlength{\parindent}{2em} \bjfuAbstractEnString \\\\
         %英文关键词为五号Times New Roman体加粗
         \zihao{5}\textbf{Key Words: \bjfuKeywordsEnString}
     \end{titlepage}
