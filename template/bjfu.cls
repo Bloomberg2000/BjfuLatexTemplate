@@ -39,42 +39,35 @@
 \RequirePackage[sort&compress]{gbt7714}
 % 论文一律编排并打印在A4幅面白纸上
 % 上边距为25mm，下边距为25mm，左边距为30mm，右边距为20mm
-\geometry{a4paper,left=30mm,right=25mm,top=30mm,bottom=25mm}
+\geometry{a4paper,left=30mm,right=20mm,top=25mm,bottom=25mm}
 
 % 论文行间距为1.5倍（可能需要用\selectfont）
-\linespread{1.5}
+\linespread{1.8}
 
 % 页眉页脚开启
 \pagestyle{fancy}
 
-% 页眉字号字体为五号宋体，内容为“北京林业大学本科毕业论文(设计)”
-\chead{\footnotesize\CJKfamily{zhsong}北京林业大学本科毕业论文（设计） } 
+% 页眉字号字体为小五号宋体，内容为“北京林业大学本科毕业论文(设计)”
+\chead{\zihao{-5}\CJKfamily{zhsong}北京林业大学本科毕业论文（设计） } 
 % 页眉只有中间有内容，左右为空白
 \lhead{} 
 \rhead{}
 
 % 页眉下边的横线宽度：事实上论文规范并没有对此做出规定，但是我们选择遵循常理去除横线。
-% \renewcommand{\headrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0pt}
 
-
-\renewcommand{\normalsize}{\zihao{-4}}  
-
-% 论文页码的字号字体为五号Times New Roman体
+% 论文页码的字号字体为小五号Times New Roman体
 % 从绪论部分开始，至附录，用阿拉伯数字连续编排
 % 页码位于页面底端居中
-% 用于页码 五号
-
-\renewcommand{\footnotesize}{\zihao{5}}  
-
-% 页眉/表格内容/表格注释/表注/图注的字体大小配置 小五号
-\renewcommand{\tiny}{\zihao{-5}\CJKfamily{zhsong}}  
+% 用于页码/表格内容/表注/图注的字体大小配置 小五号
+\renewcommand{\footnotesize}{\zihao{-5}}  
 
 % 论文中出现的所有数字和字母如无特殊要求都用Times New Roman体。
 % 设置正文非汉字的字体为Times New Roman
 \setmainfont{Times New Roman}
 
 % 图表注释配置一定要在这里声明space，直接声明不好使，小五号
-\captionsetup{font={tiny,bf},labelsep=space}
+\captionsetup{font={footnotesize,bf},labelsep=space}
 
 %%% 图片相关配置
 
@@ -116,7 +109,9 @@
     %英文标题end
 }
 % 表格注释标签
-\def\TPTnoteLabel#1{\tiny\CJKfamily{zhsong}\textbf{注#1:}}
+\def\TPTnoteLabel#1{\zihao{-6}\CJKfamily{zhsong}\textbf{注#1:}}
+% 表格注释字体使用六号宋体
+\renewcommand{\tiny}{\zihao{-6}\CJKfamily{zhsong}}  
 
 %%% 公式相关配置
 % 设置公式编号随着章节自动清零
@@ -132,39 +127,33 @@
 \renewcommand{\subsectionautorefname}{节}
 \renewcommand{\subsubsectionautorefname}{条}
 
-% 目录标题：三号宋体加粗
-\CTEXoptions[contentsname={ \zihao{3} \CJKfamily{zhsong} \centering \textbf{目录} \vspace{14pt}}]
+% 目录标题：三号黑体
+\CTEXoptions[contentsname={ \zihao{3} \CJKfamily{zhhei} \centering 目录 }]
 
-% 参考文献标题：三号宋体加粗
-\CTEXoptions[bibname={ \zihao{3} \CJKfamily{zhsong} \centering \textbf{参考文献} \vspace{14pt} }]
+% 参考文献标题：四号宋体加粗
+\CTEXoptions[bibname={ \zihao{4} \CJKfamily{zhsong} \centering \textbf{参考文献} \vspace{14pt} }]
 
-% 致谢标题：三号宋体加粗
-\newcommand{\bjfuThanks}{
-    \newpage
-    \centerline{\zihao{3}\CJKfamily{zhsong}\bfseries{致谢}}\vspace{14pt}\phantomsection\addcontentsline{toc}{section}{致谢}
-}
-
-% 章标题：三号宋体加粗
-% section另起一页，宋体三号加粗居中
+% 章标题：四号宋体加粗
+% section另起一页，宋体四号加粗居中
 \CTEXsetup[
     beforeskip=7pt,
     afterskip=7pt,
-    format={\newpage\centering\zihao{3}\CJKfamily{zhsong}\bfseries}
+    format={\newpage\centering\zihao{4}\CJKfamily{zhsong}\bfseries}
 ]{section}
 
-% 节标题：四号宋体加粗
-% subsection，四号宋体加粗
+% 节标题：小四号宋体加粗
+% subsection宋体小四号加粗
 \CTEXsetup[
     beforeskip=6pt,
     afterskip=6pt,
-    format={\zihao{4}\CJKfamily{zhsong}\bfseries}
+    format={\zihao{-4}\CJKfamily{zhsong}\bfseries}
 ]{subsection}
 
-% subsubsection：宋体小四号加粗
+% subsubsection宋体五号加粗
 \CTEXsetup[
     beforeskip=5.25pt,
     afterskip=5.25pt,
-    format={\zihao{-4}\CJKfamily{zhsong}\bfseries}
+    format={\zihao{5}\CJKfamily{zhsong}\bfseries}
 ]{subsubsection}
 
 
@@ -242,6 +231,7 @@
 
 
 
+
 % 列表编号设置
 \renewcommand{\labelenumi}{（\theenumi）} % 一级为(1)
 \renewcommand{\theenumii}{\arabic{enumii}} % 二级设置为数字
@@ -249,11 +239,16 @@
     \large\protect\textcircled{\small{\theenumii}}
 } % 二级为圈1
 
+% 致谢 
+\newcommand{\bjfuThanks}{
+    \newpage
+    \centerline{\zihao{4}\CJKfamily{zhsong}\bfseries{致谢}}\vspace{14pt}\phantomsection\addcontentsline{toc}{section}{致谢}
+}
 
-% 参考文献内容：五号宋体
+% 参考文献 小五号宋体
 \newcommand{\bjfubib}[1]{
     \newpage
-    \phantomsection\addcontentsline{toc}{section}{参考文献}\zihao{5}\CJKfamily{zhsong}\bibliography{#1}
+    \phantomsection\addcontentsline{toc}{section}{参考文献}\zihao{-5}\CJKfamily{zhsong}\bibliography{#1}
 }
 
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -324,39 +319,39 @@
         \thispagestyle{fancy}
         % 中文摘要
         \begin{center}
-            % % 论文题目用小三号黑体(中文)或者Times New Roman体(英文)
-            % % 分行用双反斜线表示
-            % \zihao{-3}\CJKfamily{zhhei}\textbf{\bjfuTitleString}\\
+            % 论文题目用小三号黑体(中文)或者Times New Roman体(英文)
+            % 分行用双反斜线表示
+            \zihao{-3}\CJKfamily{zhhei}\textbf{\bjfuTitleString}\\
 
-            % % 作者及指导教师用小四号宋体
-            % % 中文作者名，空格用单反斜线或者回车行表示
-            % \zihao{-4}\CJKfamily{zhsong}\bjfuClassString \ \bjfuAuthorString \\
-            % \zihao{-4}\CJKfamily{zhsong}指导老师\ \bjfuSupervisorString \\
+            % 作者及指导教师用小四号宋体
+            % 中文作者名，空格用单反斜线或者回车行表示
+            \zihao{-4}\CJKfamily{zhsong}\bjfuClassString \ \bjfuAuthorString \\
+            \zihao{-4}\CJKfamily{zhsong}指导老师\ \bjfuSupervisorString \\
 
-            % “摘要”字样用三号宋体加粗居中
-            \zihao{3}\CJKfamily{zhsong}\textbf{摘要}
+            % “摘要”字样用四号宋体加粗居中
+            \zihao{4}\CJKfamily{zhsong}\textbf{摘要}
         \end{center}
 
-        % 摘要正文用楷体小四号
-        \zihao{-4}\CJKfamily{zhkai}\bjfuAbstractString \\\\
+        % 摘要正文用楷体五号
+        \zihao{5}\CJKfamily{zhkai}\bjfuAbstractString \\\\
 
-        % “关键词”字样后带冒号，"关键词:"为小四号宋体加粗 关键词内容小四号宋体
-        \CTEXnoindent\zihao{-4}\CJKfamily{zhsong}\textbf{关键词：}\bjfuKeywordsString
+        % “关键词”字样后带冒号，中文关键词为五号宋体加粗
+        \CTEXnoindent\zihao{5}\CJKfamily{zhsong}\textbf{关键词：\bjfuKeywordsString}
         \pagebreak
 
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         % 英文摘要
         % 英文题目用小三号Times New Roman体，其他要求同中文
         \begin{center}
-            % \zihao{-3}\textbf{\bjfuTitleEnString}\\
-            % \zihao{-4}\bjfuClassEnString\ \bjfuAuthorEnString \\
-            % \zihao{-4}Supervisor\ \bjfuSupervisorEnString \\
-            \zihao{3}\textbf{Abstract}
+            \zihao{-3}\textbf{\bjfuTitleEnString}\\
+            \zihao{-4}\bjfuClassEnString\ \bjfuAuthorEnString \\
+            \zihao{-4}Supervisor\ \bjfuSupervisorEnString \\
+            \zihao{4}\textbf{Abstract}
         \end{center}
         %英文摘要正文
-        \zihao{-4} \setlength{\parindent}{2em} \bjfuAbstractEnString \\\\
+        \zihao{5} \setlength{\parindent}{2em} \bjfuAbstractEnString \\\\
         %英文关键词为五号Times New Roman体加粗
-        \zihao{-4}\textbf{Keywords:\ }\bjfuKeywordsEnString
+        \zihao{5}\textbf{Key Words: \bjfuKeywordsEnString}
     \end{titlepage}
     \pagebreak
     % 目录
